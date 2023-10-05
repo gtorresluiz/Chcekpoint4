@@ -1,51 +1,51 @@
-# Checkpoint - Vinheria Agnello
+# Checkpoint 4 - Vinheria Agnello
 
-Este é um projeto de um dispositivo de monitoramento para uma vinícola que visa garantir as condições ideais para o armazenamento de vinhos. O dispositivo monitora três principais parâmetros: luminosidade, temperatura e umidade, garantindo assim que os vinhos estejam sempre em condições ideais de conservação. Além disso, o dispositivo é integrado à plataforma Tago, permitindo o envio de dados para um servidor e a criação de um gráfico de linhas atualizado em tempo real com os valores dos sensores. O código fonte para este dispositivo está incluído neste repositório.
+Este é um projeto de sistema de monitoramento para a Vinheria Agnello que utiliza sensores de luminosidade, umidade e temperatura. Os dados coletados pelos sensores são enviados para a plataforma Tago.io, onde você pode acompanhar e analisar as informações em tempo real e criar gráficos de histórico.
 
-## Funcionalidades
+## Pré-requisitos
 
-### Luminosidade
-O dispositivo mede a luminosidade do ambiente onde os vinhos estão armazenados. De acordo com as demandas da vinícola, os vinhos devem ser mantidos em locais com pouca luz para evitar a degradação dos compostos orgânicos. Se a luminosidade exceder os limites aceitáveis, o dispositivo aciona um alarme sonoro e exibe uma mensagem de alerta no display LCD.
+Antes de começar, certifique-se de ter os seguintes componentes e recursos disponíveis:
 
-### Temperatura
-A temperatura é um fator crítico para a conservação de vinhos. O dispositivo monitora a temperatura ambiente e exibe-a no display LCD. Se a temperatura ultrapassar os limites ideais, o dispositivo aciona um alarme e exibe uma mensagem de alerta no display.
+- Placa ESP32
+- Sensores DHT11 para temperatura e umidade
+- Sensor de luminosidade (LDR)
+- Acesso à internet
+- Conta no Tago.io
+- Conexão Wi-Fi
 
-### Umidade
-A umidade é outro fator importante para a conservação dos vinhos. O dispositivo mede a umidade do ambiente e a exibe no display LCD. Se a umidade estiver fora dos limites aceitáveis, o dispositivo aciona um alarme e exibe uma mensagem de alerta no display.
+## Configuração do Hardware
 
-### Integração com Tago
-O dispositivo está integrado à plataforma Tago, que permite o envio de dados dos sensores para um servidor remoto. Os dados são enviados periodicamente para a plataforma Tago, onde podem ser visualizados e analisados. Além disso, um gráfico de linhas é criado e atualizado em tempo real com os valores dos sensores, proporcionando uma visualização clara das condições de armazenamento dos vinhos.
+Conecte os sensores DHT11 e o sensor de luminosidade à placa Arduino conforme o esquema elétrico fornecido. Certifique-se de alimentar a placa Arduino e fornecer uma conexão Wi-Fi válida para sua rede.
 
-## Configuração
+## Configuração do Software
 
-O dispositivo é configurado da seguinte forma:
+Antes de carregar o código no Arduino, é necessário configurar algumas informações importantes no código:
 
-- O LCD é conectado aos pinos 7, 6, 5, 4, 3 e 2 do Arduino.
-- Os LEDs vermelho, amarelo e verde são conectados aos pinos 11, 12 e 13, respectivamente.
-- O buzzer é conectado ao pino 10.
-- Os sensores de luminosidade (LDR) e temperatura (TMP) são conectados aos pinos A5 e A4, respectivamente.
-- Um sensor de umidade é conectado ao pino A3.
+- `nomeWifi`: Insira o nome da sua rede Wi-Fi.
+- `senhaWifi`: Insira a senha da sua rede Wi-Fi.
+- `tokenHeader`: Substitua pelo seu token de dispositivo Tago.io.
+- `serverAddress`: URL da API Tago.io para envio de dados.
 
-## Integração com Tago
+## Carregando o Código no Arduino
 
-Para integrar o dispositivo com a plataforma Tago, siga os passos abaixo:
-
-1. Crie uma conta na plataforma Tago em [https://tago.io](https://tago.io) se você ainda não tiver uma.
-
-2. Crie um novo dispositivo na plataforma Tago e obtenha as credenciais de acesso, como o token de dispositivo.
-
-3. No código do Arduino, configure as informações de autenticação, como o token do dispositivo Tago, o ID do dispositivo e o ID do bucket.
-
-4. Utilize a biblioteca adequada para enviar os dados dos sensores para a plataforma Tago. Certifique-se de seguir as instruções da biblioteca para configurar a comunicação.
-
-5. Configure um dashboard na plataforma Tago para visualizar os dados dos sensores e criar um gráfico de linhas atualizado em tempo real.
+Utilize a IDE do Arduino para carregar o código no seu dispositivo Arduino após a configuração adequada. Certifique-se de que a placa e a porta estejam configuradas corretamente na IDE.
 
 ## Uso
 
-O dispositivo é projetado para operar continuamente e monitorar as condições do ambiente de armazenamento dos vinhos. Os dados dos sensores são enviados para a plataforma Tago, onde podem ser visualizados e analisados em tempo real.
+Após o carregamento do código, o sistema começará a coletar dados de temperatura, umidade e luminosidade a cada 5 segundos. Os dados são enviados automaticamente para o Tago.io para monitoramento em tempo real.
 
-## Referências
+## Acessando os Dados
 
-As demandas do projeto foram baseadas nas necessidades específicas da Vinheria Agnello.
+Acesse a plataforma Tago.io para visualizar e analisar os dados coletados. Você pode criar gráficos de linha com o histórico de temperatura, umidade e luminosidade para tomar decisões informadas relacionadas à sua vinícola.
 
-A integração com a plataforma Tago permite uma gestão eficaz do monitoramento das condições de armazenamento dos vinhos, proporcionando um controle preciso sobre os parâmetros de luminosidade, temperatura e umidade.
+## Créditos
+
+Este projeto foi desenvolvido com base no Arduino e na plataforma Tago.io.
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter detalhes.
+
+---
+
+Sinta-se à vontade para personalizar o README.md de acordo com as necessidades do seu projeto e adicionar informações adicionais, como a descrição do circuito elétrico e instruções detalhadas de configuração da plataforma Tago.io.
